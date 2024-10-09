@@ -28,11 +28,11 @@ def about(request):
 
 
 items = [
-   {"id": 1, "name": "Кроссовки abibas" ,"quantity":5},
-   {"id": 2, "name": "Куртка кожаная" ,"quantity":2},
-   {"id": 5, "name": "Coca-cola 1 литр" ,"quantity":12},
-   {"id": 7, "name": "Картофель фри" ,"quantity":0},
-   {"id": 8, "name": "Кепка" ,"quantity":124},
+   {"id": 1, "name": "Кроссовки abibas", "quantity":5},
+   {"id": 2, "name": "Куртка кожаная", "quantity":2},
+   {"id": 5, "name": "Coca-cola 1 литр", "quantity":12},
+   {"id": 7, "name": "Картофель фри", "quantity":0},
+   {"id": 8, "name": "Кепка", "quantity":124},
 ]
 
 
@@ -52,5 +52,28 @@ def get_item(request, number):
     """
     return HttpResponse(text)
 
+
 def get_list_items(request):
-    pass
+    li_string = ''
+    counter = 1
+    for item in items:
+        tmp = item['name']
+        new_string = f'<li><a href="items/{counter}" style="text-decoration: none">{tmp}</a></li>'
+        li_string += new_string
+        counter += 1
+    text = f"""
+    <p>Список товаров:</p>
+    <ol>
+    {li_string}
+    </ol>
+    """
+    return HttpResponse(text)
+
+
+def get_string_li(request, number_li):
+    text = f"""
+    <p><a href="http://127.0.0.1:8000/items" style="text-decoration: none">&#8617; к списку товаров</a></p>
+    <p>Название: {items[number_li - 1]['name']}</p>
+    <p>Количество: {items[number_li - 1]['quantity']}</p>
+    """
+    return HttpResponse(text)
