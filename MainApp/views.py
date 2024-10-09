@@ -38,11 +38,9 @@ items = [
 
 
 def get_item(request, number):
-    for i in items:
-        if i['id'] == number:
-            name = i['name']
-            count = i['quantity']
-            context = {'name': name, 'count': count}
+    for item in items:
+        if item['id'] == number:
+            context = {'item': item}
         return render(request, 'item_page.html', context)
     text = f'Товар с id={number} не найден!'
     return HttpResponse(text)
