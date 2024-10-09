@@ -3,11 +3,12 @@ from django.http import HttpResponse
 
 
 def home(request):
-    text = """
-    <h1>"Изучаем Django"</h1>
-    <strong>Автор</strong>: <i>Иванов И.П.</i>
-    """
-    return HttpResponse(text)
+    # text = """
+    # <h1>"Изучаем Django"</h1>
+    # <strong>Автор</strong>: <i>Иванов И.П.</i>
+    # """
+    # return HttpResponse(text)
+    return render(request, 'index.html')
 
 
 def about(request):
@@ -37,42 +38,27 @@ items = [
 
 
 def get_item(request, number):
-    flag = False
     for i in items:
         if i['id'] == number:
             name = i['name']
             count = i['quantity']
-            flag = True
-    if flag == False:
-        text = f'Товар с id={number} не найден!'
-        return HttpResponse(text)
-    text = f"""
-    <p>Название: {name}</p>
-    <p>Количество: {count}</p>
-    """
+            context = {'name': name, 'count': count}
+        return render(request, 'item_page.html', context)
+    text = f'Товар с id={number} не найден!'
     return HttpResponse(text)
-
+ 
 
 def get_list_items(request):
-    li_string = ''
-    counter = 1
+    li_list = []
     for item in items:
-        tmp = item['name']
-        new_string = f'<li><a href="items/{counter}" style="text-decoration: none">{tmp}</a></li>'
-        li_string += new_string
-        counter += 1
-    text = f"""
-    <p>Список товаров:</p>
-    <ol>
-    {li_string}
-    </ol>
-    """
-    return HttpResponse(text)
+        li_list.append(item['name'])
+    context = {'li_list': li_list}
+    return render(request, 'items_list.html', context)
 
 
 def get_string_li(request, number_li):
     text = f"""
-    <p><a href="http://127.0.0.1:8000/items" style="text-decoration: none">&#8617; к списку товаров</a></p>
+    <p><a href="/items" style="text-decoration: none">&#8617; к списку товаров</a></p>
     <p>Название: {items[number_li - 1]['name']}</p>
     <p>Количество: {items[number_li - 1]['quantity']}</p>
     """

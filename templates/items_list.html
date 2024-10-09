@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>item page</title>
+</head>
+<body>
+    <p>Список товаров:</p>
+    <ol>
+        {% for name in li_list %}
+            <li>{{ name }}</li>
+        {% endfor %}
+    </ol>
+</body>
+</html>
