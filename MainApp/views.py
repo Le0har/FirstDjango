@@ -47,10 +47,7 @@ def get_item(request, number):
  
 
 def get_list_items(request):
-    li_list = []
-    for item in items:
-        li_list.append(item['name'])
-    context = {'li_list': li_list}
+    context = {'items': items}
     return render(request, 'items_list.html', context)
 
 
