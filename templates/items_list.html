@@ -3,13 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>item list</title>
+    <title>items list</title>
 </head>
 <body>
+    <header>
+        <nav>
+            <ul style="list-style-type: none">
+                <li style="display: inline"><a href="/" style="text-decoration: none">/ Home </a></li>
+                <li style="display: inline"><a href="/items" style="text-decoration: none">/ Items </a></li>
+                <li style="display: inline"><a href="/about" style="text-decoration: none">/ About /</a></li>
+            </ul>
+        </nav>
+    </header>
+
     <p>Список товаров:</p>
     <ol>
         {% for item in items %}
-            <li>{{ item.name }}</li>
+            <li><a href="/item/{{ item.id }}" style="text-decoration: none">{{ item.name }}</a></li>
         {% endfor %}
     </ol>
 </body>

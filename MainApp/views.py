@@ -3,29 +3,18 @@ from django.http import HttpResponse
 
 
 def home(request):
-    # text = """
-    # <h1>"Изучаем Django"</h1>
-    # <strong>Автор</strong>: <i>Иванов И.П.</i>
-    # """
-    # return HttpResponse(text)
     return render(request, 'index.html')
 
 
 def about(request):
-    name = 'Ivan'
-    middle_name = 'Petrovich'
-    surname = 'Ivanov'
-    tel_number = '8-923-745-33-22'
-    email = 'ivan@hop.com'
-
-    text = f"""
-    <p>Имя: {name}</p>
-    <p>Отчество: {middle_name}</p>
-    <p>Фамилия: {surname}</p>
-    <p>телефон: {tel_number}</p>
-    <p>email: {email}</p>
-    """
-    return HttpResponse(text)
+    context = {
+        'name': 'Master',
+        'middle_name': 'Podelkovich',
+        'surname': 'Samodelkin',
+        'tel_number': '8-007-111-22-33',
+        'email': 'yasam@hop.com'
+    }
+    return render(request, 'about.html', context)
 
 
 items = [
@@ -41,7 +30,7 @@ def get_item(request, number):
     for item in items:
         if item['id'] == number:
             context = {'item': item}
-        return render(request, 'item_page.html', context)
+            return render(request, 'item_page.html', context)
     text = f'Товар с id={number} не найден!'
     return HttpResponse(text)
  
@@ -51,10 +40,3 @@ def get_list_items(request):
     return render(request, 'items_list.html', context)
 
 
-def get_string_li(request, number_li):
-    text = f"""
-    <p><a href="/items" style="text-decoration: none">&#8617; к списку товаров</a></p>
-    <p>Название: {items[number_li - 1]['name']}</p>
-    <p>Количество: {items[number_li - 1]['quantity']}</p>
-    """
-    return HttpResponse(text)
