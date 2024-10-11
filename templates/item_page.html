@@ -18,10 +18,10 @@
 
     <p>Название: {{ item.name }}</p>
     <p>Бренд: {{ item.brand }}</p>
-    {% if item.quantity != 0 %}
+    {% if item.count != 0 %}
         <p>Количество: {{ item.count }}</p>
     {% else %}
-        <p>Товар отсутсвует</p>
+        <p>Количество: товар отсутсвует</p>
     {% endif %}
     <br>
     <p><a href="/items" style="text-decoration: none">&#8617; к списку товаров</a></p>

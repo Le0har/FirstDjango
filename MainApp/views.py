@@ -20,7 +20,7 @@ def about(request):
 
 def get_item(request, number):
     try:
-        one_item = Item.objects.get(pk=number)
+        one_item = Item.objects.get(id=number)
     except Item.DoesNotExist:
         text = f'Товар с id = {number} не найден!'
         return HttpResponse(text)

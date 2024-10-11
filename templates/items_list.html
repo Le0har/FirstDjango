@@ -4,6 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>items list</title>
+    <style>
+        .cols {
+            display: flex;
+            justify-content: space-between;
+        }
+        .col {
+            width: 30%;
+            padding-top: 10px;
+            text-align: center;
+            box-shadow: 0 0 5px #999;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -16,11 +28,14 @@
         </nav>
     </header>
 
-    <p>Список товаров:</p>
-    <ol>
+    <div class="cols">
         {% for item in items %}
-            <li><a href="/item/{{ item.id }}" style="text-decoration: none">{{ item.name }}</a></li>
+            <div class="col">
+                <a href="/item/{{ item.id }}" style="text-decoration: none">{{ item.name }}</a>
+                <p>{{ item.description }}</p>
+            </div>
         {% endfor %}
-    </ol>
+    </div>
+
 </body>
 </html>
