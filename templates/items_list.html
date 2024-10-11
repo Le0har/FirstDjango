@@ -1,9 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>items list</title>
+{% extends 'base.html' %} 
+
+{% block style %}
     <style>
         .cols {
             display: flex;
@@ -16,26 +13,15 @@
             box-shadow: 0 0 5px #999;
         }
     </style>
-</head>
-<body>
-    <header>
-        <nav>
-            <ul style="list-style-type: none">
-                <li style="display: inline"><a href="/" style="text-decoration: none">/ Home </a></li>
-                <li style="display: inline"><a href="/items" style="text-decoration: none">/ Items </a></li>
-                <li style="display: inline"><a href="/about" style="text-decoration: none">/ About /</a></li>
-            </ul>
-        </nav>
-    </header>
+{% endblock %}
 
+{% block content %}
     <div class="cols">
         {% for item in items %}
             <div class="col">
-                <a href="/item/{{ item.id }}" style="text-decoration: none">{{ item.name }}</a>
+                <a href="{% url 'get-item' item.id %}" style="text-decoration: none">{{ item.name }}</a>
                 <p>{{ item.description }}</p>
             </div>
         {% endfor %}
     </div>
-
-</body>
-</html>
+{% endblock %}

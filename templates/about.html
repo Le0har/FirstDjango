@@ -1,24 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>about page</title>
-</head>
-<body>
-    <header>
-        <nav>
-            <ul style="list-style-type: none">
-                <li style="display: inline"><a href="/" style="text-decoration: none">/ Home </a></li>
-                <li style="display: inline"><a href="/items" style="text-decoration: none">/ Items </a></li>
-                <li style="display: inline"><a href="/about" style="text-decoration: none">/ About /</a></li>
-            </ul>
-        </nav>
-    </header>
+{% extends 'base.html' %} 
 
+{% block content %}
     <p>&#127937;</p>
     <p>&#128736; {{ name }} {{ middle_name }} {{ surname }}</p>
     <p>&#9742; {{ tel_number }}</p>
     <p>&#128386; {{ email }}</p>
-</body>
-</html>
+{% endblock %} 
