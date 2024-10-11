@@ -48,5 +48,25 @@
         "count": 5,
         "description": "нет описания"
     }
+},
+{
+    "model": "MainApp.item",
+    "pk": 6,
+    "fields": {
+        "name": "Футбольный мяч",
+        "brand": "adidos",
+        "count": 10,
+        "description": "спортивный инвентарь"
+    }
+},
+{
+    "model": "MainApp.item",
+    "pk": 7,
+    "fields": {
+        "name": "Теннисная ракетка",
+        "brand": "kike",
+        "count": 0,
+        "description": "спортивный инвентарь"
+    }
 }
 ]
