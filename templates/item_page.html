@@ -1,5 +1,7 @@
 {% extends 'base.html' %} 
 
+{% block title %} Item page {% endblock %}
+
 {% block content %}
     <p>Название: {{ item.name }}</p>
     <p>Бренд: {{ item.brand }}</p>
@@ -8,6 +10,18 @@
     {% else %}
         <p>Количество: товар отсутсвует</p>
     {% endif %}
+
+    {% if new_colors %}
+        <p>Цвет товара:</p>
+        <ul>
+            {% for color in new_colors %} 
+                <li> {{ color }} </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Цвет товара: неизвестен</p>
+    {% endif %}
+
     <br>
     <p><a href="{% url 'get-list-items' %}" style="text-decoration: none">&#8617; к списку товаров</a></p>
 {% endblock %} 

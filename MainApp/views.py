@@ -25,7 +25,11 @@ def get_item(request, number):
         text = f'Товар с id = {number} не найден!'
         return HttpResponse(text)
     else:
-        context = {'item': one_item}
+        colors_to_dict = []
+        all_colors = one_item.colors.all()
+        for color in all_colors:
+            colors_to_dict.append(color.name)
+        context = {'item': one_item, 'new_colors': colors_to_dict}
         return render(request, 'item_page.html', context)
 
 def get_list_items(request):

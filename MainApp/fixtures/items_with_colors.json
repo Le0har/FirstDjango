@@ -1,0 +1,98 @@
+[
+{
+    "model": "MainApp.color",
+    "pk": 1,
+    "fields": {
+        "name": "red"
+    }
+},
+{
+    "model": "MainApp.color",
+    "pk": 2,
+    "fields": {
+        "name": "green"
+    }
+},
+{
+    "model": "MainApp.item",
+    "pk": 1,
+    "fields": {
+        "name": "Кроссовки",
+        "brand": "abibas",
+        "count": 10,
+        "description": "нет описания",
+        "colors": [
+            1,
+            2
+        ]
+    }
+},
+{
+    "model": "MainApp.item",
+    "pk": 2,
+    "fields": {
+        "name": "Куртка кожанная",
+        "brand": "Чиркизон",
+        "count": 20,
+        "description": "нет описания",
+        "colors": [
+            2
+        ]
+    }
+},
+{
+    "model": "MainApp.item",
+    "pk": 3,
+    "fields": {
+        "name": "Байкал",
+        "brand": "Черноголовка",
+        "count": 300,
+        "description": "нет описания",
+        "colors": []
+    }
+},
+{
+    "model": "MainApp.item",
+    "pk": 4,
+    "fields": {
+        "name": "Картофель фри",
+        "brand": "МакДак",
+        "count": 40,
+        "description": "нет описания",
+        "colors": []
+    }
+},
+{
+    "model": "MainApp.item",
+    "pk": 5,
+    "fields": {
+        "name": "Кепка",
+        "brand": "Puman",
+        "count": 5,
+        "description": "нет описания",
+        "colors": []
+    }
+},
+{
+    "model": "MainApp.item",
+    "pk": 6,
+    "fields": {
+        "name": "Футбольный мяч",
+        "brand": "adidos",
+        "count": 10,
+        "description": "спортивный инвентарь",
+        "colors": []
+    }
+},
+{
+    "model": "MainApp.item",
+    "pk": 7,
+    "fields": {
+        "name": "Теннисная ракетка",
+        "brand": "kike",
+        "count": 0,
+        "description": "спортивный инвентарь",
+        "colors": []
+    }
+}
+]

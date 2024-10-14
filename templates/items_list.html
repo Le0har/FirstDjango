@@ -1,18 +1,9 @@
 {% extends 'base.html' %} 
 
+{% block title %} Items list {% endblock %}
+
 {% block style %}
-    <style>
-        .cols {
-            display: flex;
-            justify-content: space-between;
-        }
-        .col {
-            width: 30%;
-            padding-top: 10px;
-            text-align: center;
-            box-shadow: 0 0 5px #999;
-        }
-    </style>
+    {{ block.super }}
 {% endblock %}
 
 {% block content %}
